@@ -88,7 +88,7 @@ void makeNtuple(){
  }
  p_fake_pt[9]->GetBinContent(1);
  //output file and tree
- TFile *outf= new TFile(Form("/export/d00/scratch/abaty/trackingEff/closure_ntuples/track_ntuple_%s_%s_testforfake_big.root",infname.Data(),algo.Data()),"recreate");
+ TFile *outf= new TFile(Form("/export/d00/scratch/abaty/trackingEff/closure_ntuples/track_ntuple_%s_%s_testforfake_small.root",infname.Data(),algo.Data()),"recreate");
  std::string particleVars="pt:matchedpt:eta:phi:rmin:trackselect:cent:eff";
 
  TNtuple *nt_particle = new TNtuple("nt_particle","",particleVars.data());
@@ -99,7 +99,7 @@ void makeNtuple(){
  //loop over events
  int nentries = ftrk->GetEntriesFast();
  // for(int jentry=0;jentry<nentries;jentry++){
- for(int jentry=0;jentry<nentries;jentry++){
+ for(int jentry=0;jentry<10000;jentry++){
   if((jentry%1000)==0) std::cout<<jentry<<"/"<<nentries<<std::endl;
   ftrk->GetEntry(jentry);
   fhi->GetEntry(jentry);

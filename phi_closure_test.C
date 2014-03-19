@@ -71,6 +71,7 @@ void makeMultiPanelCanvas(TCanvas*& canv,
       Yup[i] = Yup[rows-1] + (ct+1)*PadHeight;
       ct++;
    }
+//   Ylow[2] = bottomOffset+PadHeight/2.0; 
 
    TString padName;
    for(Int_t i=0;i<columns;i++) {
@@ -166,8 +167,8 @@ leg2->AddEntry(h_gen,"gen","p");
 leg2->AddEntry(h_gen_select,"gen select matched uncorr","p");
 leg2->AddEntry(h_gen_matched_select_corr,"gen select matched corr","p");
 
-TCanvas * c2 = new TCanvas("c2","",600,800);
-makeMultiPanelCanvas(c2,1,2,0.0,0.0,0.15,0.15,0.02);
+TCanvas * c2 = new TCanvas("c2","",600,900);
+makeMultiPanelCanvas(c2,1,3,0.0,0.0,0.15,0.15,0.02);
 c2->cd(1);
 //c2->cd(1)->SetLogx();
 //c2->cd(1)->SetLogy();
@@ -202,10 +203,24 @@ leg2a->SetFillStyle(0);
 leg2a->AddEntry(hgen_corr_rat,"corr","p");
 leg2a->AddEntry(hgen_uncorr_rat,"uncorr","p");
 //leg2a->Draw("same");
+c2->cd(3);
+hgen_corr_rat->SetMaximum(1.05);
+hgen_corr_rat->SetMinimum(0.95);
+hgen_corr_rat->GetYaxis()->SetTitle("N_{gen,sel,match,corr}/N_{gen}");
+hgen_corr_rat->Draw();
+TLine * l = new TLine(-3.14,1,3.14,1);
+l->Draw("same");
 
 c2->SaveAs("compare_gen_select_corr_phi.png");
 c2->SaveAs("compare_gen_select_corr_phi.pdf");
 
+
+
+
+
+
+
+//************************************************************************************
 //fake correction
 TH1D * h_reco = new  TH1D("h_reco",";#phi;N_{evt}",nbins,low,high);
 TH1D * h_reco_matched = new  TH1D("h_reco_matched",";#phi;N_{evt}",nbins,low,high);
@@ -229,8 +244,8 @@ leg3->AddEntry(h_reco,"reco","p");
 leg3->AddEntry(h_reco_matched,"reco matched","p");
 leg3->AddEntry(h_reco_fakecorr,"reco fake corr","p");
 
-TCanvas * c3 = new TCanvas("c3","",600,800);
-makeMultiPanelCanvas(c3,1,2,0.0,0.0,0.15,0.15,0.02);
+TCanvas * c3 = new TCanvas("c3","",600,900);
+makeMultiPanelCanvas(c3,1,3,0.0,0.0,0.15,0.15,0.02);
 c3->cd(1);
 //c3->cd(1)->SetLogx();
 //c3->cd(1)->SetLogy();
@@ -263,10 +278,21 @@ leg3a->SetFillStyle(0);
 leg3a->AddEntry(hreco_fakecorr_rat,"corr","p");
 leg3a->AddEntry(hreco_fakeuncorr_rat,"uncorr","p");
 //leg3a->Draw("same");
+c3->cd(3);
+hreco_fakecorr_rat->SetMaximum(1.05);
+hreco_fakecorr_rat->SetMinimum(0.95);
+hreco_fakecorr_rat->GetYaxis()->SetTitle("N_{reco}/N_{reco,matched}");
+hreco_fakecorr_rat->Draw();
+l->Draw("same");
 
 c3->SaveAs("compare_reco_fake_corr_phi.png");
 c3->SaveAs("compare_reco_fake_corr_phi.pdf");
 
+
+
+
+
+/***********************************************************************************/
 //full correction
 TH1D * h_reco_fakecorr_effcorr = new TH1D("h_reco_fakecorr_effcorr",";#phi;N_{evt}",nbins,low,high);
 TH1D * h_reco_fakecorr_effcorr_unfold = new TH1D("h_reco_fakecorr_effcorr_unfold",";#phi;N_{evt}",nbins,low,high);
@@ -283,8 +309,8 @@ leg4->AddEntry(h_reco_fakecorr_effcorr,"reco corr","p");
 leg4->AddEntry(h_reco,"reco","p");
 
 
-TCanvas *c4 = new TCanvas("c4","",600,800);
-makeMultiPanelCanvas(c4,1,2,0.0,0.0,0.15,0.15,0.02);
+TCanvas *c4 = new TCanvas("c4","",600,900);
+makeMultiPanelCanvas(c4,1,3,0.0,0.0,0.15,0.15,0.02);
 
 c4->cd(1);
 //c4->cd(1)->SetLogx();
@@ -317,9 +343,17 @@ leg4a->SetFillStyle(0);
 leg4a->AddEntry(h_genreco_fullcorr,"corr","p");
 leg4a->AddEntry(h_genreco,"uncorr","p");
 //leg4a->Draw("same");
+c4->cd(3);
+h_genreco_fullcorr->SetMaximum(1.05);
+h_genreco_fullcorr->SetMinimum(0.95);
+h_genreco_fullcorr->GetYaxis()->SetTitle("N_{reco,select,corr}/N_{gen}");
+h_genreco_fullcorr->Draw();
+l->Draw("same");
 
 c4->SaveAs("compare_select_fullcorr_phi.png");
 c4->SaveAs("compare_select_fullcorr_phi.pdf");
+ /************************************************************/
+
 
 //this part is for crosscheck to see if the matched particle spectrum agrees with spectrum of not-fake tracks
 /*
