@@ -172,6 +172,18 @@ c2->cd(1);
 //c2->cd(1)->SetLogx();
 c2->cd(1)->SetLogy();
 h_gen->Draw();
+
+h_gen->GetYaxis()->SetLabelSize(18);
+h_gen->GetYaxis()->SetLabelFont(43);
+h_gen->GetYaxis()->SetTitleSize(25);
+h_gen->GetYaxis()->SetTitleFont(43);
+h_gen->GetYaxis()->SetTitleOffset(2.2);
+h_gen->GetXaxis()->SetLabelSize(22);
+h_gen->GetXaxis()->SetLabelFont(43);
+h_gen->GetXaxis()->SetTitleSize(20);
+h_gen->GetXaxis()->SetTitleFont(43);
+h_gen->GetXaxis()->SetTitleOffset(1.5);
+
 //h_gen->Draw("same hist");
 h_gen_select->Draw("same");
 h_gen_matched_select_corr->Draw("same");
@@ -192,6 +204,16 @@ hgen_uncorr_rat->GetYaxis()->SetTitle("N_{gen,sel,match}/N_{gen}");
 //hgen_corr_rat->SetMaximum(1.1);
 //hgen_corr_rat->SetMinimum(0.7);
 hgen_uncorr_rat->Draw();
+hgen_uncorr_rat->GetYaxis()->SetLabelSize(18);
+hgen_uncorr_rat->GetYaxis()->SetLabelFont(43);
+hgen_uncorr_rat->GetYaxis()->SetTitleSize(25);
+hgen_uncorr_rat->GetYaxis()->SetTitleFont(43);
+hgen_uncorr_rat->GetYaxis()->SetTitleOffset(2.2);
+hgen_uncorr_rat->GetXaxis()->SetLabelSize(22);
+hgen_uncorr_rat->GetXaxis()->SetLabelFont(43);
+hgen_uncorr_rat->GetXaxis()->SetTitleSize(20);
+hgen_uncorr_rat->GetXaxis()->SetTitleFont(43);
+hgen_uncorr_rat->GetXaxis()->SetTitleOffset(1.5);
 hgen_corr_rat->Draw("same");
 
 TLegend *leg2a = new TLegend(0.7,0.2,0.95,0.4);
@@ -207,6 +229,17 @@ hgen_corr_rat->SetMaximum(1.05);
 hgen_corr_rat->SetMinimum(0.95);
 hgen_corr_rat->GetYaxis()->SetTitle("N_{gen,sel,match,corr}/N_{gen}");
 hgen_corr_rat->Draw();
+hgen_corr_rat->GetYaxis()->SetLabelSize(18);
+hgen_corr_rat->GetYaxis()->SetLabelFont(43);
+hgen_corr_rat->GetYaxis()->SetTitleSize(25);
+hgen_corr_rat->GetYaxis()->SetTitleFont(43);
+hgen_corr_rat->GetYaxis()->SetTitleOffset(2.2);
+hgen_corr_rat->GetXaxis()->SetLabelSize(22);
+hgen_corr_rat->GetXaxis()->SetLabelFont(43);
+hgen_corr_rat->GetXaxis()->SetTitleSize(20);
+hgen_corr_rat->GetXaxis()->SetTitleFont(43);
+hgen_corr_rat->GetXaxis()->SetTitleOffset(1.5);
+
 TLine * l = new TLine(0,1,200,1);
 l->Draw("same");
 
@@ -246,6 +279,16 @@ c3->cd(1);
 //c3->cd(1)->SetLogx();
 c3->cd(1)->SetLogy();
 h_reco->Draw();
+h_reco->GetYaxis()->SetLabelSize(18);
+h_reco->GetYaxis()->SetLabelFont(43);
+h_reco->GetYaxis()->SetTitleSize(25);
+h_reco->GetYaxis()->SetTitleFont(43);
+h_reco->GetYaxis()->SetTitleOffset(2.2);
+h_reco->GetXaxis()->SetLabelSize(22);
+h_reco->GetXaxis()->SetLabelFont(43);
+h_reco->GetXaxis()->SetTitleSize(20);
+h_reco->GetXaxis()->SetTitleFont(43);
+h_reco->GetXaxis()->SetTitleOffset(1.5);
 //h_reco->Draw("same hist");
 h_reco_matched->Draw("same");
 h_reco_fakecorr->Draw("same");
@@ -264,6 +307,16 @@ hreco_fakeuncorr_rat->GetYaxis()->SetTitle("N_{reco}/N_{reco,matched}");
 //hreco_fakecorr_rat->SetMaximum(1.1);
 //hreco_fakecorr_rat->SetMinimum(0.85);
 hreco_fakeuncorr_rat->Draw();
+hreco_fakeuncorr_rat->GetYaxis()->SetLabelSize(18);
+hreco_fakeuncorr_rat->GetYaxis()->SetLabelFont(43);
+hreco_fakeuncorr_rat->GetYaxis()->SetTitleSize(25);
+hreco_fakeuncorr_rat->GetYaxis()->SetTitleFont(43);
+hreco_fakeuncorr_rat->GetYaxis()->SetTitleOffset(2.2);
+hreco_fakeuncorr_rat->GetXaxis()->SetLabelSize(22);
+hreco_fakeuncorr_rat->GetXaxis()->SetLabelFont(43);
+hreco_fakeuncorr_rat->GetXaxis()->SetTitleSize(20);
+hreco_fakeuncorr_rat->GetXaxis()->SetTitleFont(43);
+hreco_fakeuncorr_rat->GetXaxis()->SetTitleOffset(1.5);
 hreco_fakecorr_rat->Draw("same");
 
 TLegend *leg3a = new TLegend(0.5,0.7,0.95,0.9);
@@ -279,6 +332,18 @@ hreco_fakecorr_rat->SetMaximum(1.05);
 hreco_fakecorr_rat->SetMinimum(0.95);
 hreco_fakecorr_rat->GetYaxis()->SetTitle("N_{reco}/N_{reco,matched}");
 hreco_fakecorr_rat->Draw();
+hreco_fakecorr_rat->GetYaxis()->SetLabelSize(18);
+hreco_fakecorr_rat->GetYaxis()->SetLabelFont(43);
+hreco_fakecorr_rat->GetYaxis()->SetTitleSize(25);
+hreco_fakecorr_rat->GetYaxis()->SetTitleFont(43);
+hreco_fakecorr_rat->GetYaxis()->SetTitleOffset(2.2);
+hreco_fakecorr_rat->GetXaxis()->SetLabelSize(22);
+hreco_fakecorr_rat->GetXaxis()->SetLabelFont(43);
+hreco_fakecorr_rat->GetXaxis()->SetTitleSize(20);
+hreco_fakecorr_rat->GetXaxis()->SetTitleFont(43);
+hreco_fakecorr_rat->GetXaxis()->SetTitleOffset(1.5);
+
+
 l->Draw("same");
 
 c3->SaveAs("compare_reco_fake_corr_cent.png");
@@ -343,6 +408,18 @@ h_genreco_fullcorr->SetMaximum(1.05);
 h_genreco_fullcorr->SetMinimum(0.95);
 h_genreco_fullcorr->GetYaxis()->SetTitle("N_{reco,select,corr}/N_{gen}");
 h_genreco_fullcorr->Draw();
+h_genreco_fullcorr->GetYaxis()->SetLabelSize(18);
+h_genreco_fullcorr->GetYaxis()->SetLabelFont(43);
+h_genreco_fullcorr->GetYaxis()->SetTitleSize(25);
+h_genreco_fullcorr->GetYaxis()->SetTitleFont(43);
+h_genreco_fullcorr->GetYaxis()->SetTitleOffset(2.2);
+h_genreco_fullcorr->GetXaxis()->SetLabelSize(22);
+h_genreco_fullcorr->GetXaxis()->SetLabelFont(43);
+h_genreco_fullcorr->GetXaxis()->SetTitleSize(20);
+h_genreco_fullcorr->GetXaxis()->SetTitleFont(43);
+h_genreco_fullcorr->GetXaxis()->SetTitleOffset(1.5);
+
+
 l->Draw("same");
 
 c4->SaveAs("compare_select_fullcorr_cent.png");
